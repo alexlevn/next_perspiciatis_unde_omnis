@@ -15,8 +15,21 @@ export default function Header({ className }) {
     <DrawerProvider>
       <header sx={styles.header} className={className} id="header">
         <Container sx={styles.container}>
-          <Logo src={className === 'sticky' ? LogoDark : LogoWhite} />
-          <div className="font-extrabold text-xl text">Transaction Project</div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}
+          >
+            <Logo
+              src={className === 'sticky' ? LogoDark : LogoWhite}
+              className="border-red-400"
+            />
+            <div className="font-semibold sm:text-sm md:text-xl text">
+              Translation Project
+            </div>
+          </div>
 
           <Flex as="nav" sx={styles.nav}>
             {menuItems.map(({ path, label }, i) =>
@@ -84,7 +97,8 @@ const styles = {
     animation: `${positionAnim} 0.4s ease`,
     '.donate__btn': {
       flexShrink: 0,
-      mr: [15, 20, null, null, 0],
+      // mr: [15, 20, null, null, 0],
+      mr: ['auto', null, null, null, 0],
       ml: ['auto', null, null, null, 0],
     },
     '&.sticky': {
@@ -94,7 +108,7 @@ const styles = {
       boxShadow: '0 1px 2px rgba(0, 0, 0, 0.06)',
       py: 3,
       'nev > a': {
-        color: 'text',
+        // color: 'text',
       },
       '.donate__btn': {
         borderColor: 'primary',

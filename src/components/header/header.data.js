@@ -1,12 +1,4 @@
 export default [
-  // {
-  //   path: 'home',
-  //   label: 'Home',
-  // },
-  // {
-  //   path: 'feature',
-  //   label: 'Features',
-  // },
   {
     path: 'https://github.com/vietai/SAT',
     label: 'Github',
@@ -23,8 +15,4 @@ export default [
     path: 'https://forms.gle/2pTWQ4RKMjZA76VZ6',
     label: 'Get involved',
   },
-  // {
-  //   path: 'pricing',
-  //   label: 'Pricing',
-  // },
 ]

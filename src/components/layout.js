@@ -7,7 +7,7 @@ import Footer from './footer/footer';
 
 export default function Layout({ children }) {
   const [isSticky, setIsSticky] = useState(false);
-  
+
   const handleStateChange = (status) => {
     if (status.status === Sticky.STATUS_FIXED) {
       setIsSticky(true);
