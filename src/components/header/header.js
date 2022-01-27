@@ -1,13 +1,14 @@
 /** @jsx jsx */
-import { jsx, Container, Flex, Button } from 'theme-ui';
-import { keyframes } from '@emotion/core';
-import { Link } from 'react-scroll';
-import Logo from 'components/logo';
-import LogoDark from 'assets/logo-dark.svg';
-import LogoWhite from 'assets/logo.svg';
-import { DrawerProvider } from '../../contexts/drawer/drawer.provider';
-import MobileDrawer from './mobile-drawer';
-import menuItems from './header.data';
+import { jsx, Container, Flex, Button } from 'theme-ui'
+import { keyframes } from '@emotion/core'
+import { Link } from 'react-scroll'
+import Logo from 'components/logo'
+import LogoDark from 'assets/logo-dark.svg'
+import LogoWhite from 'assets/logo.svg'
+import { DrawerProvider } from '../../contexts/drawer/drawer.provider'
+import MobileDrawer from './mobile-drawer'
+import menuItems from './header.data'
+import NextLink from 'next/link'
 
 export default function Header({ className }) {
   return (
@@ -15,36 +16,47 @@ export default function Header({ className }) {
       <header sx={styles.header} className={className} id="header">
         <Container sx={styles.container}>
           <Logo src={className === 'sticky' ? LogoDark : LogoWhite} />
+          <div className="font-extrabold text-xl text">Transaction Project</div>
 
           <Flex as="nav" sx={styles.nav}>
-            {menuItems.map(({ path, label }, i) => (
-              <Link
-                activeClass="active"
-                to={path}
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                key={i}
-              >
-                {label}
-              </Link>
-            ))}
+            {menuItems.map(({ path, label }, i) =>
+              path.includes('.') ? (
+                <NextLink passHref href={path} key={i}>
+                  <a target="_blank">{label}</a>
+                </NextLink>
+              ) : (
+                <Link
+                  activeClass="active"
+                  to={path}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                  key={i}
+                >
+                  {label}
+                </Link>
+              ),
+            )}
           </Flex>
 
-          <Button
-            className="donate__btn"
-            variant="secondary"
-            aria-label="Get Started"
-          >
-            Get Started
-          </Button>
+          <NextLink passHref href="https://forms.gle/2pTWQ4RKMjZA76VZ6">
+            <a target="_blank">
+              <Button
+                className="donate__btn"
+                variant="secondary"
+                aria-label="Get Started"
+              >
+                Get Started
+              </Button>
+            </a>
+          </NextLink>
 
           <MobileDrawer />
         </Container>
       </header>
     </DrawerProvider>
-  );
+  )
 }
 
 const positionAnim = keyframes`
@@ -57,8 +69,7 @@ const positionAnim = keyframes`
     opacity: 1;
     transition: all 0.4s ease;
   }
-`;
-
+`
 const styles = {
   header: {
     color: 'white',
@@ -118,4 +129,4 @@ const styles = {
       },
     },
   },
-};
+}

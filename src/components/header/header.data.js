@@ -1,18 +1,30 @@
 export default [
+  // {
+  //   path: 'home',
+  //   label: 'Home',
+  // },
+  // {
+  //   path: 'feature',
+  //   label: 'Features',
+  // },
   {
-    path: 'home',
-    label: 'Home',
+    path: 'https://github.com/vietai/SAT',
+    label: 'Github',
   },
   {
-    path: 'feature',
-    label: 'Features',
-  },
-  {
-    path: 'testimonial',
-    label: 'Testimonial',
+    path: 'https://blog.vietai.org/sat/',
+    label: 'Release history',
   },
   {
     path: 'pricing',
-    label: 'Pricing',
+    label: 'Version 1.2',
   },
-];
+  {
+    path: 'https://forms.gle/2pTWQ4RKMjZA76VZ6',
+    label: 'Get involved',
+  },
+  // {
+  //   path: 'pricing',
+  //   label: 'Pricing',
+  // },
+]

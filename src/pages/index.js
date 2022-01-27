@@ -21,7 +21,6 @@ export default function IndexPage() {
       <StickyProvider>
         <Layout>
           <SEO title="Better translation for Vietnamese" />
-          <div className="text-red-500">Hello Tailwind</div>
           <Banner />
           <KeyFeature />
           <CoreFeature />
